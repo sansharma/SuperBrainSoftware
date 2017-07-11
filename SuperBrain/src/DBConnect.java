@@ -5,9 +5,9 @@ import java.sql.*;
  */
 public class DBConnect {
     private Connection conn;
-    private Connection stmt;
+    private Statement stmt;
 
-    public void setConnection() {
+    public DBConnect(){
         String url = "jdbc:mysql://localhost/superbrain";
         String username = "root";
         String password = "";
@@ -47,6 +47,23 @@ public class DBConnect {
         return false;
 
     }
+
+    public boolean EnrollStudents(String name, String address, int age, String contact_no, String course ){
+        String sql = "Insert into  userdetails values username = ?";
+        try {
+            stmt = conn.createStatement();
+            if(stmt.executeUpdate(sql) == 1){
+                return true;
+            }
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 
 
 
