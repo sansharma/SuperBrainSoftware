@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Dell on 7/11/2017.
@@ -99,6 +101,26 @@ public class StudentEnroll extends JFrame {
         gbc.gridy++;
         gbc.gridy++;
         panel.add(submitButton);
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nameValue = name.getText();
+                String addressValue = address.getText();
+                String ageValue = age.getText();
+                String sexValue = sex.getText();
+                String contactnoValue = contactno.getText();
+                String courseValue = course.getText();
+
+                DBConnect db = new DBConnect();
+                if(db.EnrollStudents(nameValue,addressValue,ageValue,sexValue,contactnoValue,courseValue)){
+                    JDialog dialog = new JDialog();
+                    dialog.getContentPane();
+
+                }
+
+            }
+        });
 
 
 
