@@ -48,11 +48,19 @@ public class DBConnect {
 
     }
 
-    public boolean EnrollStudents(String name, String address, int age, String contact_no, String course ){
-        String sql = "Insert into  userdetails values username = ?";
-        try {
-            stmt = conn.createStatement();
-            if(stmt.executeUpdate(sql) == 1){
+
+    public boolean EnrollStudents(String nameValue, String addressValue,String ageValue,String sexValue,String contactnoValue,String courseValue ){
+        String sql = "Insert into  students" + "(name,address,age,sex,contactno,course) " + " values(?,?,?,?,?,?)";
+         try {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,nameValue);
+            statement.setString(2,addressValue);
+            statement.setString(3,ageValue);
+            statement.setString(4,sexValue);
+            statement.setString(5,contactnoValue);
+            statement.setString(6,courseValue);
+
+            if(statement.executeUpdate() == 1){
                 return true;
             }
             else
@@ -62,6 +70,8 @@ public class DBConnect {
         }
         return false;
     }
+
+
     public boolean insertCourse(String name, String teacher, String duration, String fee){
         String sql = "INSERT INTO Registration " +
                 "VALUES (Name , Teacher, Duration, fee)";
@@ -79,10 +89,4 @@ public class DBConnect {
         return false;
 
     }
-
-
-
-
-
-
 }
