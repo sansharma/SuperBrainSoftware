@@ -62,6 +62,23 @@ public class DBConnect {
         }
         return false;
     }
+    public boolean insertCourse(String name, String teacher, String duration, String fee){
+        String sql = "INSERT INTO Registration " +
+                "VALUES (Name , Teacher, Duration, fee)";
+
+        try {
+            stmt = conn.createStatement();
+            if(stmt.executeUpdate(sql) == 1){
+                return true;
+            }
+            else
+                return false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
 
 
 
