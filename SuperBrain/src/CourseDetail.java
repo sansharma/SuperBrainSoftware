@@ -9,76 +9,86 @@ import java.awt.event.ActionListener;
  * Created by Sandesh on 7/10/2017.
  */
 public class CourseDetail extends JFrame {
-    private JLabel label = new JLabel();
-    private JButton submitbutton=new JButton();
-    private JTextField ID, Name, Teacher, Duration, Fee;
-    private JLabel jID, jName, JTeacher, JDuration, JFee;
-    private JLabel titleLabel = new JLabel();
-    private JPanel panel = new JPanel();
-    private JPasswordField Id = new JPasswordField();
-    private JTextField Nam = new JTextField();
-    private JTextField Teach = new JTextField();
-    private JTextField Dura = new JTextField();
-    private JTextField fee = new JTextField();
-    GridBagLayout gridBagLayout = new GridBagLayout();
+    private JPanel panel;
+    private JLabel label;
+    private JButton submitbutton;
+    private JLabel namelabel;
+    private JLabel teacherlabel;
+    private JLabel durationlabel;
+    private JLabel feelabel;
+    private JTextField name;
+    private JTextField teacher;
+    private JTextField duration;
+    private JTextField fee;
+
 
     public CourseDetail() {
+        panel = new JPanel();
+        GridBagLayout gridBagLayout = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         panel.setLayout(gridBagLayout);
-         submitbutton=new JButton("submit");
-         gbc.gridx=12;
-         gbc.gridy=13;
-         panel.add(submitbutton,gbc);
 
-        titleLabel = new JLabel("Name");
-        titleLabel.setSize(200, 300);
-        gbc.gridx = 3;
-        gbc.gridy = 1;
-        panel.add(titleLabel, gbc);
-        Nam = new JTextField(30);
-        gbc.gridx = 4;
-        gbc.gridy = 1;
-        panel.add(Nam);
-        titleLabel = new JLabel("Teacher");
-        titleLabel.setSize(500, 300);
-        gbc.gridx = 5;
-        gbc.gridy = 3;
-        panel.add(titleLabel, gbc);
-        Teach = new JTextField(30);
-        gbc.gridx = 6;
-        gbc.gridy = 3;
-        panel.add(Teach, gbc);
-        titleLabel = new JLabel("Duration");
-        titleLabel.setSize(400, 300);
-        gbc.gridx = 8;
-        gbc.gridy = 4;
-        panel.add(titleLabel, gbc);
 
-        Dura = new JTextField(30);
-        gbc.gridx = 10;
-        gbc.gridy = 4;
-        panel.add(Dura);
+        namelabel = new JLabel("Name:");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel.add(namelabel,gbc);
 
-        titleLabel = new JLabel("Fee");
-        titleLabel.setSize(300, 300);
-        gbc.gridx = 12;
-        gbc.gridy = 5;
-        panel.add(titleLabel, gbc);
-        fee = new JTextField(30);
-        gbc.gridx = 14;
-        gbc.gridy = 5;
-        panel.add(fee, gbc);
+        teacherlabel = new JLabel("Teacher:");
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(teacherlabel,gbc);
+
+        durationlabel = new JLabel("Duration:");
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(durationlabel, gbc);
+
+        feelabel = new JLabel("Fee:");
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(feelabel, gbc);
+
+        name=new JTextField(30);
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.ipady = 10;
+        panel.add(name,gbc);
+
+        teacher=new JTextField(30);
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(teacher,gbc);
+
+        duration=new JTextField(30);
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(duration,gbc);
+
+        fee=new JTextField(30);
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(fee,gbc);
+
+        submitbutton = new JButton("Submit");
+        gbc.gridy++;
+        gbc.gridy++;
+        gbc.gridy++;
+        panel.add(submitbutton);
+
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300, 300);
+        add(panel);
+
+
         submitbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String Name= jName.getText();
-                String Teacher=JTeacher.getText();
-                String Duration=JDuration.getText();
-                String Fee=JFee.getText();
-                System.out.println(Name);
-                System.out.println(Teacher);
-                System.out.println(Duration);
-                System.out.println(Fee);
+                String Name= namelabel.getText();
+                String Teacher=teacherlabel.getText();
+                String Duration=durationlabel.getText();
+                String Fee=feelabel.getText();
 
                 DBConnect db=new DBConnect();
                 if(db.insertCourse(Name,Teacher,Duration,Fee)){
@@ -91,9 +101,6 @@ public class CourseDetail extends JFrame {
             }
         });
 
-        add(panel);
-        setVisible(true);
-        setSize(300, 300);
 
 
     }
