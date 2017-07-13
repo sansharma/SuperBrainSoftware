@@ -8,16 +8,15 @@ import java.awt.event.ActionListener;
  */
 public class ReceptionDashboard extends JFrame{
     private JPanel panel=new JPanel();
-    private JButton studentEnrollButton=new JButton("StudentEnroll");
-    private JButton courseDetailbutton=new JButton("CourseDetails");
-
+    private JButton studentEnrollButton;
+    private JButton courseDetailbutton;
 
     public ReceptionDashboard(){
         GridBagLayout gridBagLayout=new GridBagLayout();
 
         GridBagConstraints gbc =new GridBagConstraints();
         panel.setLayout(gridBagLayout);
-        studentEnrollButton=new JButton("STUDENTS ENROLL");
+        studentEnrollButton=new JButton(" ENROLL STUDENTS");
         gbc.gridx=2;
         gbc.gridy=1;
         gbc.ipadx = 5;
@@ -25,7 +24,7 @@ public class ReceptionDashboard extends JFrame{
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         panel.add(studentEnrollButton,gbc);
-        courseDetailbutton=new JButton("COURSE DETAILS");
+        courseDetailbutton=new JButton("ADD COURSE");
         gbc.gridwidth = 1;
         gbc.gridx=2;
         gbc.gridy=7;
@@ -39,14 +38,14 @@ public class ReceptionDashboard extends JFrame{
         studentEnrollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new StudentEnroll();
+                new EnrollStudent();
             }
         });
 
         courseDetailbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    new CourseDetail();
+                    new AddCourse();
             }
         });
     }
