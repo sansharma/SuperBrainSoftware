@@ -32,15 +32,8 @@ public class Admin extends JFrame {
         gbc.gridwidth = 4;
         panel.add(AddCoursebutton,gbc);
 
-        AddUserbutton=new JButton("ADD USER");
-        gbc.gridx=4;
-        gbc.gridy=1;
-        gbc.ipadx = 5;
-        gbc.ipady = 2;
-        gbc.gridwidth = 4;
 
-        panel.add(AddCoursebutton,gbc);
-        AddUserbutton=new JButton("ADD COURSE");
+        AddUserbutton=new JButton("ADD USER");
         gbc.gridx=2;
         gbc.gridy=2;
         gbc.ipadx = 5;
