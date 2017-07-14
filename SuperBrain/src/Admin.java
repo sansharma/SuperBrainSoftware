@@ -88,6 +88,67 @@ public class Admin extends JFrame {
         setVisible(true);
         setSize(300,300);
         add(panel);
+        AddCoursebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddCourse();
+            }
+        });
+        EnrollStudentbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EnrollStudent();
+            }
+        });
+        CancelInstallmentbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CancelInstallment();
+            }
+        });
+        DeleteCoursebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DeleteCourse();
+            }
+        });
+        DeleteStudentbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DeleteStudent();
+            }
+        });
+        UpdateUserbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UpdateUser();
+            }
+        });
+        ViewNormalUsersbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ViewNormalUser();
+            }
+        });
+//        InstallmenPaymenttbutton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new ();
+//            }
+//        });
+        CancelInstallmentbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CancelInstallment();
+            }
+        });
+//        ViewStudentDetailsbutton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                new ();
+//            }
+//        });
+
     }
 
       public static void main(String args []){
