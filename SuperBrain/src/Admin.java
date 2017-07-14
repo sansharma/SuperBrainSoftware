@@ -30,8 +30,9 @@ public class Admin extends JFrame {
         AddCoursebutton=new JButton("ADD COURSE");
         gbc.gridx=0;
         gbc.gridy=0;
-        gbc.gridwidth = 4;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        //gbc.gridwidth = 1;
+        //gbc.ipadx = 2;
+        //gbc.ipady = 3;
         panel.add(AddCoursebutton,gbc);
 
         EnrollStudentbutton=new JButton("ENROLL STUDENT");
@@ -57,12 +58,10 @@ public class Admin extends JFrame {
 
 
         AddUserbutton=new JButton("ADD USER");
-        gbc.gridy = 1;
+        gbc.gridx = 3;
         gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.ipadx = 6;
-        gbc.ipady = 3;
-        panel.add(AddCoursebutton,gbc);
+       // gbc.gridwidth = 2;
+        panel.add(AddUserbutton,gbc);
 
         DeleteStudentbutton=new JButton("DELETE STUDENT");
         gbc.gridy++;
@@ -77,12 +76,12 @@ public class Admin extends JFrame {
         DeleteCoursebutton=new JButton("DELETE COURSE");
         gbc.gridy++;
         gbc.gridy++;
-        panel.add(DeleteStudentbutton,gbc);
+        panel.add(DeleteCoursebutton,gbc);
 
         ViewNormalUsersbutton=new JButton("VIEW NORMAL USER");
         gbc.gridy++;
         gbc.gridy++;
-        panel.add(ViewStudentDetailsbutton,gbc);
+        panel.add(ViewNormalUsersbutton,gbc);
 
 
         setVisible(true);
