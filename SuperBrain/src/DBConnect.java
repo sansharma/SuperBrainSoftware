@@ -73,7 +73,7 @@ public class DBConnect {
 
 
     public boolean insertCourse(String name, String teacher, String duration, String fee){
-        String sql = "INSERT INTO Registration " +
+        String sql = "INSERT INTO coursedetails      " +
                 "VALUES (Name , Teacher, Duration, fee)";
 
         try {
@@ -88,5 +88,74 @@ public class DBConnect {
         }
         return false;
 
+    }
+
+    public ResultSet fetchCourse(){
+        String sql = "SELECT * FROM coursedetails";
+        ResultSet rs = null;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public ResultSet fetchStudent(){
+        String sql = "SELECT * FROM students";
+        ResultSet rs = null;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public boolean addUser(String username, String password){
+        String sql = "Insert into  user" + "(username,password) " + " values(?,?)";
+        PreparedStatement statement = null;
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1,username);
+            statement.setString(2,password);
+            if(statement.executeUpdate()>0){
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public ResultSet fetchUser(){
+            String sql = "select * from user";
+            ResultSet rs  = null;
+        try {
+            Statement stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            return rs;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+    public boolean deleteStudent(String name){
+        String sql = "DELETE FROM  students where name = ? ";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, name);
+            if(stmt.executeUpdate()>0){
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

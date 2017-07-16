@@ -1,21 +1,17 @@
-import com.sun.org.glassfish.gmbal.NameValue;
-
 import javax.swing.*;
-import javax.swing.table.TableColumn;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Sandesh on 7/10/2017.
+ * Created by Sandesh on 7/15/2017.
  */
-public class CourseDetail extends JFrame {
+public class ViewNormalUser extends JFrame {
     private JPanel panel;
     private ResultSet rs ;
 
-    public CourseDetail() {
+
+    public ViewNormalUser(){
         panel = new JPanel();
         BorderLayout borderLayout = new BorderLayout();
         panel.setLayout(borderLayout);
@@ -23,10 +19,9 @@ public class CourseDetail extends JFrame {
         rs  = db.fetchCourse();
 
         String[] columnNames = {"ID",
-                "Course Name",
-                "Teacher",
-                "Duration",
-                "Fee"};
+                "UserName",
+                "Password",
+                };
 
         try {
             int row = rs.getRow();
@@ -35,10 +30,8 @@ public class CourseDetail extends JFrame {
             int i=0;
             while(rs.next()){
                 data[i][0] = rs.getInt("id");
-                data[i][1] = rs.getString("name");
-                data[i][2] = rs.getString("teacher");
-                data[i][3] = rs.getString("duration");
-                data[i][4] = rs.getString("fee");
+                data[i][1] = rs.getString("username");
+                data[i][2] = rs.getString("password");
                 i++;
             }
             JTable table = new JTable(data,columnNames);
@@ -57,6 +50,4 @@ public class CourseDetail extends JFrame {
         setSize(700, 300);
         add(panel);
     }
-
-
 }
