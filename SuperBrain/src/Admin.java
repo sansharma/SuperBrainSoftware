@@ -142,12 +142,20 @@ public class Admin extends JFrame {
                 new CancelInstallment();
             }
         });
-//        ViewStudentDetailsbutton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                new ();
-//            }
-//        });
+
+        ViewStudentDetailsbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new StudentDetail();
+            }
+        });
+        AddUserbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                    new AddUser();
+            }
+        });
+
 
     }
 
