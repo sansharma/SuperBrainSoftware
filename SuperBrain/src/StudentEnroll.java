@@ -125,7 +125,6 @@ public class StudentEnroll extends JFrame {
 
 
         setVisible(true);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(300,300);
         add(panel);
 

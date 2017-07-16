@@ -10,6 +10,7 @@ public class ReceptionDashboard extends JFrame{
     private JPanel panel=new JPanel();
     private JButton studentEnrollButton;
     private JButton courseDetailbutton;
+    private JButton courseViewButton;
 
     public ReceptionDashboard(){
         GridBagLayout gridBagLayout=new GridBagLayout();
@@ -31,6 +32,15 @@ public class ReceptionDashboard extends JFrame{
         gbc.ipadx = 6;
         gbc.ipady = 3;
         panel.add(courseDetailbutton,gbc);
+
+        courseViewButton=new JButton("VIEW COURSE");
+        gbc.gridwidth = 1;
+        gbc.gridx=2;
+        gbc.gridy=12;
+        gbc.ipadx = 6;
+        gbc.ipady = 3;
+        panel.add(courseViewButton,gbc);
+
         add(panel);
         setVisible(true);
         setSize(300,300);
@@ -46,6 +56,13 @@ public class ReceptionDashboard extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                     new AddCourse();
+            }
+        });
+
+        courseViewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CourseDetail();
             }
         });
     }
